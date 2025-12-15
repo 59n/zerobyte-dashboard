@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg-color: #050505;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --text-primary: #e4e4e7;
+  --text-secondary: #71717a;
+  --accent-color: #ef4444;
+  --success-color: #22c55e;
+  --border-color: #27272a;
+  --font-family: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  /* Allow scrolling for mobile/smaller screens */
+
+  /* Grid Background */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px;
+  /* Slightly narrower */
+  padding: 1.5rem;
+  /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  /* Reduced gap */
+  position: relative;
+  height: 100vh;
+  /* Force full height */
+  justify-content: center;
+}
+
+/* Decorative corners for the main container or specific sections could go here */
+
+/* Utilities */
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  /* Zerobyte style often uses uppercase labels */
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+
+@keyframes jiggle {
+  0% {
+    transform: rotate(-1deg);
+  }
+
+  50% {
+    transform: rotate(1deg);
+  }
+
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+.jiggle {
+  animation: jiggle 0.2s infinite;
+}

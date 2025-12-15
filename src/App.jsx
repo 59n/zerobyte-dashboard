@@ -10,9 +10,9 @@ import SettingsModal from './components/SettingsModal';
 function App() {
   // Default config
   const DEFAULT_CONFIG = {
-    weather: { lat: '51.4416', long: '5.4697' }, // Eindhoven
+    weather: { lat: '40.7128', long: '-74.0060' }, // New York
     market: {
-      apiKey: 'd4vmt1hr01qs25f140p0d4vmt1hr01qs25f140pg', // Default demo key
+      apiKey: '', // Empty by default
       tickers: ['AAPL', 'TSLA', 'BINANCE:EURUSDT']
     }
   };

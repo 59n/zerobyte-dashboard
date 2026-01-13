@@ -14,7 +14,8 @@ function App() {
     market: {
       apiKey: '', // Empty by default
       tickers: ['AAPL', 'TSLA', 'BINANCE:EURUSDT']
-    }
+    },
+    theme: 'default'
   };
 
   const [config, setConfig] = useState(() => {
@@ -28,6 +29,10 @@ function App() {
   });
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', config.theme || 'default');
+  }, [config.theme]);
 
   const updateConfig = (newConfig) => {
     setConfig(newConfig);

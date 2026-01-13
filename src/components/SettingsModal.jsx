@@ -13,13 +13,20 @@ const SettingsModal = ({ isOpen, onClose, onSave, initialConfig }) => {
     if (!isOpen) return null;
 
     const handleChange = (section, key, value) => {
-        setConfig(prev => ({
-            ...prev,
-            [section]: {
-                ...prev[section],
-                [key]: value
+        setConfig(prev => {
+            if (key === null) {
+                // Top-level update (e.g. theme)
+                return { ...prev, [section]: value };
             }
-        }));
+            // Nested update
+            return {
+                ...prev,
+                [section]: {
+                    ...prev[section],
+                    [key]: value
+                }
+            };
+        });
     };
 
     const handleTickerChange = (index, value) => {
@@ -61,6 +68,33 @@ const SettingsModal = ({ isOpen, onClose, onSave, initialConfig }) => {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    {/* Appearance Section */}
+                    <div>
+                        <h3 style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                            Appearance
+                        </h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
+                            {['default', 'midnight', 'forest', 'cyberpunk', 'dracula', 'nord', 'coffee', 'matrix'].map(theme => (
+                                <button
+                                    key={theme}
+                                    onClick={() => handleChange('theme', null, theme)}
+                                    style={{
+                                        background: config.theme === theme ? 'var(--accent-color)' : 'rgba(255,255,255,0.05)',
+                                        border: '1px solid var(--border-color)',
+                                        color: config.theme === theme ? '#000' : 'var(--text-primary)',
+                                        padding: '0.5rem',
+                                        borderRadius: '4px',
+                                        cursor: 'pointer',
+                                        textTransform: 'capitalize',
+                                        fontSize: '0.85rem',
+                                        fontWeight: config.theme === theme ? 600 : 400
+                                    }}
+                                >
+                                    {theme}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                     {/* Weather Section */}
                     <div>
                         <h3 style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>

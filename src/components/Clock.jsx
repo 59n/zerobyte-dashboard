@@ -44,7 +44,7 @@ const Clock = () => {
                 {formatTime(time)}
             </h1>
             <div className="text-secondary" style={{ marginTop: '0.5rem', fontSize: '1rem' }}>
-                <span style={{ color: 'var(--accent-color)' }}>{formatDate(time).split(',')[0]}</span>
+                <span style={{ color: 'var(--clock-accent)' }}>{formatDate(time).split(',')[0]}</span>
                 <span>, {formatDate(time).split(',').slice(1).join(',')}</span>
             </div>
         </div>

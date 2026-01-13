@@ -1,14 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 
 :root {
+  /* Default (Dark) Theme */
   --bg-color: #050505;
+  --bg-gradient: linear-gradient(to bottom right, #18181b, #000000);
   --card-bg: rgba(255, 255, 255, 0.02);
   --text-primary: #e4e4e7;
   --text-secondary: #71717a;
   --accent-color: #ef4444;
+  --clock-accent: #10b981;
   --success-color: #22c55e;
   --border-color: #27272a;
   --font-family: 'JetBrains Mono', monospace;
+}
+
+[data-theme='midnight'] {
+  --bg-color: #020617;
+  --bg-gradient: linear-gradient(to bottom right, #1e1b4b, #020617);
+  --card-bg: rgba(30, 41, 59, 0.3);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #6366f1; /* Indigo */
+  --clock-accent: #818cf8;
+  --border-color: #1e293b;
+}
+
+[data-theme='forest'] {
+  --bg-color: #022c22;
+  --bg-gradient: linear-gradient(to bottom right, #064e3b, #022c22);
+  --card-bg: rgba(20, 83, 45, 0.2);
+  --text-primary: #ecfdf5;
+  --text-secondary: #6ee7b7;
+  --accent-color: #34d399; /* Emerald */
+  --clock-accent: #10b981;
+  --border-color: #065f46;
+}
+
+[data-theme='cyberpunk'] {
+  --bg-color: #050a14;
+  --bg-gradient: linear-gradient(to bottom right, #1a0b2e, #050a14);
+  --card-bg: rgba(255, 0, 150, 0.05); /* Slight pink tint */
+  --text-primary: #e2e8f0;
+  --text-secondary: #00f0ff;
+  --accent-color: #ff0099;
+  --clock-accent: #fcee0a; /* Cyber yellow */
+  --border-color: rgba(0, 240, 255, 0.3);
+}
+
+[data-theme='dracula'] {
+  --bg-color: #282a36;
+  --bg-gradient: linear-gradient(to bottom right, #282a36, #1e1f29);
+  --card-bg: rgba(68, 71, 90, 0.4);
+  --text-primary: #f8f8f2;
+  --text-secondary: #bd93f9;
+  --accent-color: #ff79c6;
+  --clock-accent: #bd93f9;
+  --border-color: rgba(98, 114, 164, 0.5); /* Clearer border */
+}
+
+[data-theme='nord'] {
+  --bg-color: #242933;
+  --bg-gradient: linear-gradient(to bottom right, #2e3440, #1c2128); /* Darker background */
+  --card-bg: rgba(59, 66, 82, 0.6); /* More opaque card */
+  --text-primary: #eceff4;
+  --text-secondary: #88c0d0;
+  --accent-color: #81a1c1;
+  --clock-accent: #a3be8c;
+  --border-color: rgba(236, 239, 244, 0.15); /* Light border for contrast against dark */
+}
+
+[data-theme='coffee'] {
+  --bg-color: #0c0a09;
+  --bg-gradient: linear-gradient(to bottom right, #1c1917, #0c0a09); /* Darker/richer */
+  --card-bg: rgba(68, 28, 0, 0.15);
+  --text-primary: #f5f5f4;
+  --text-secondary: #a8a29e;
+  --accent-color: #d97706;
+  --clock-accent: #b45309;
+  --border-color: rgba(120, 53, 15, 0.3);
+}
+
+[data-theme='matrix'] {
+  --bg-color: #000000;
+  --bg-gradient: #000000;
+  --card-bg: rgba(0, 50, 0, 0.2);
+  --text-primary: #00ff41;
+  --text-secondary: #008f11;
+  --accent-color: #00ff41;
+  --clock-accent: #00ff41;
+  --border-color: #003b00;
 }
 
 * {
@@ -30,11 +110,7 @@ body {
   overflow-y: auto;
   /* Allow scrolling for mobile/smaller screens */
 
-  /* Grid Background */
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background: var(--bg-gradient);
 }
 
 #root {
